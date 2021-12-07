@@ -61,6 +61,9 @@ def process():
     # for sample in decoded_samples:
     #   print(sample.constraints(only_broken=True))
 
-    result = sampleset.record[0][0]
+    result = sampleset.record[0][0].reshape(days, categorys, ranks)
+
+    idx = np.where(result==1)
+    present_name = presents[idx[1][0]][idx[2][0]]
     
-    return result.reshape(days, categorys, ranks)
+    return result, idx, present_name 
