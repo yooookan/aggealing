@@ -19,9 +19,9 @@ def post():
     else:
         return render_template("index.html")
 
-@app.route("/index", methods=['GET'])
-def get():
-    return render_template("index.html")
+# @app.route("/index", methods=['GET'])
+# def get():
+#     return render_template("index.html")
 
 #おまじない
 if __name__ == "__main__":
