@@ -61,7 +61,6 @@ def process():
     # for sample in decoded_samples:
     #   print(sample.constraints(only_broken=True))
 
-    ## うまく最適化されているかを確認。
     result = sampleset.record[0][0]
     
     return result.reshape(days, categorys, ranks)

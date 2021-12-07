@@ -15,6 +15,12 @@ def post():
         print('{}, {}, {}, {}'.format(cat1, cat2, cat3, cat4))
         res = annealing.process()
         print(res)
+        return render_template("result.html")
+    else:
+        return render_template("index.html")
+
+@app.route("/index", methods=['GET'])
+def get():
     return render_template("index.html")
 
 #おまじない
