@@ -11,15 +11,23 @@
     <title>Aggealing</title>
   </head>
   <body>
-    <div style="color:darkslategray; background-color: black; text-align: left; font-size: 20px">~Present Recommendation System~</div>
-    <div style="color:black; background-color: white; text-align: center; font-size: 40px">Aggealing</div>
+    <div style="color:darkslategray; background-color: black; text-align: left; font-size: 20px; padding-left:10px">~Present Recommendation System~</div>
+    <div style="color:navy; background-color: white; text-align: center; font-size: 40px">Aggealing</div>
 
-    <div style="color:black; background-color: white; text-align: left; font-size: 20px">Select categorys</div>
-    <!-- select box by Bootstrap -->
-    <!-- https://getbootstrap.com/docs/4.4/components/input-group/#custom-select -->
+    <div style="color:black; background-color: white; text-align: left; font-size: 30px; margin: 10px;">Select categorys</div>
+    <style>
+        .custom-select{
+            width: 70%;
+            margin-left: 30px;
+        }
+        .form-control{
+            width: 70%;
+            margin-left: 30px;
+        }
+    </style>
     <form action="/" method="POST" enctype="multipart/form-data">
     <div class="category1">
-        <div>Category 1</div>
+        <div style="margin-left:10px;">Category 1</div>
         <select name="cat1" class="custom-select" id="categorySelect01" aria-label="setect category 1">
           <option selected>Choose...</option>
           <option value="1">財布</option>
@@ -30,7 +38,7 @@
         </select>
     </div>
     <div class="category2">
-        <div>Category 2</div>
+        <div style="margin-left:10px;">Category 2</div>
         <select name="cat2" class="custom-select" id="categorySelect02" aria-label="setect category 2">
           <option selected>Choose...</option>
           <option value="1">財布</option>
@@ -41,7 +49,7 @@
         </select>
     </div>
     <div class="category3">
-        <div>Category 3</div>
+        <div style="margin-left:10px;">Category 3</div>
         <select name="cat3" class="custom-select" id="categorySelect03" aria-label="setect category 3">
           <option selected>Choose...</option>
           <option value="1">財布</option>
@@ -52,7 +60,7 @@
         </select>
     </div>
     <div class="category4">
-        <div>Category 4</div>
+        <div style="margin-left:10px;">Category 4</div>
         <select name="cat4" class="custom-select" id="categorySelect04" aria-label="setect category 4">
           <option selected>Choose...</option>
           <option value="1">財布</option>
@@ -62,8 +70,28 @@
           <option value="5">ネクタイ</option>
         </select>
     </div>
-    <div class="input-group-append">
-        <button class="btn btn-outline-secondary" type="submit" formmethod="POST">Set</button>
+    
+    <div style="color:black; background-color: white; text-align: left; font-size: 30px; margin: 10px; margin-top: 20px;">Select date</div>
+
+    <div class="input-daterange">
+        <div style="margin-left:10px;">Date 1</div>
+        <input type="text" class="form-control" id="daty1">
+    </div>
+    <div class="input-daterange"></div>
+        <div style="margin-left:10px;">Date 2</div>
+        <input type="text" class="form-control" id="daty2">
+    </div>
+    <div class="input-daterange"></div>
+        <div style="margin-left:10px;">Date 3</div>
+        <input type="text" class="form-control" id="daty3">
+    </div>
+    <div class="input-daterange"></div>
+        <div style="margin-left:10px;">Date 4</div>
+        <input type="text" class="form-control" id="daty4">
+    </div>
+
+    <div class="input-group-append" style="text-align:center; margin: 10px;">
+        <button class="btn btn-outline-secondary" type="submit" formmethod="POST" style="margin-left: 50px;">Set</button>
     </div>
     </form>
 
@@ -72,5 +100,15 @@
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <!-- bootstrap-datepicker -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/locales/bootstrap-datepicker.ja.min.js"></script>
+    <!-- bootstrap-datepicker javascript -->
+    <script>
+        $('.input-daterange').datepicker({
+            format: 'yyyy/mm/dd'
+        });
+    </script>
   </body>
 </html>
