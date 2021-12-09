@@ -2,8 +2,12 @@ import numpy as np
 from openjij import SQASampler
 from pyqubo import Array, Constraint, Placeholder
 
-def process(selected_categorys):
+def process(selected_categorys, selected_date):
     # Todo: these lists should be selected from database
+    category_names = ['財布', '時計', '香水', 'ネックレス', 'ネクタイ']
+    img_paths = ['../static/wallet.png', '../static/watch.png', '../static/perfume.png',
+                 '../static/necklace.png', '../static/necktie.png']
+
     presents_list = [['ポール・スミス', 'ダコダ', 'プラダ'], 
                      ['マーク・ジェイコブズ', 'アルマーニ', 'ディーゼル'], 
                      ['エルメス', 'アリサアシュレイ', 'アバントゥス'], 
@@ -18,7 +22,7 @@ def process(selected_categorys):
 
     categorys = len(selected_categorys)
     ranks = 3
-    days = 4
+    days = len(selected_date)
 
     rank = np.array([list(range(ranks))] * categorys) + 1
     presents = [presents_list[int(i)-1] for i in selected_categorys]
@@ -58,8 +62,12 @@ def process(selected_categorys):
     result_len = len(idx[0])
     present_name_1 = presents[idx[1][0]][idx[2][0]]
     present_name_2 = presents[idx[1][1]][idx[2][1]]
-    present_name_3 = presents[idx[1][2]][idx[2][2]]
+    present_names = [present_name_1, present_name_2]
 
-    print(idx)
+    category_1 = int(selected_categorys[idx[1][0]]) - 1 
+    category_2 = int(selected_categorys[idx[2][0]]) - 1
+    category_names = [category_names[category_1], category_names[category_2]]
+
+    imgs = [img_paths[category_1], img_paths[category_2]]
     
-    return result, idx, present_name_1, present_name_2, present_name_3
+    return result, idx, present_names, category_names, imgs

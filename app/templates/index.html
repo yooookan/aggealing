@@ -12,8 +12,7 @@
   </head>
   <body>
     <div style="color:darkslategray; background-color: black; text-align: left; font-size: 20px; padding-left:10px">~Present Recommendation System~</div>
-    <div style="color:navy; background-color: white; text-align: center; font-size: 40px">Aggealing</div>
-
+    <div style="color:navy; background-color: white; text-align: center; font-size: 40px; font-weight:800;">Aggealing</div>
     <div style="color:black; background-color: white; text-align: left; font-size: 30px; margin: 10px;">Select categorys</div>
     <style>
         .custom-select{
@@ -73,24 +72,19 @@
     
     <div style="color:black; background-color: white; text-align: left; font-size: 30px; margin: 10px; margin-top: 20px;">Select date</div>
 
-    <div class="input-daterange">
-        <div style="margin-left:10px;">Date 1</div>
-        <input type="text" class="form-control" id="daty1">
-    </div>
-    <div class="input-daterange"></div>
-        <div style="margin-left:10px;">Date 2</div>
-        <input type="text" class="form-control" id="daty2">
-    </div>
-    <div class="input-daterange"></div>
-        <div style="margin-left:10px;">Date 3</div>
-        <input type="text" class="form-control" id="daty3">
-    </div>
-    <div class="input-daterange"></div>
-        <div style="margin-left:10px;">Date 4</div>
-        <input type="text" class="form-control" id="daty4">
-    </div>
+    <div style="margin-left:10px;">Date 1</div>
+    <input type="text" class="form-control" id="date1" name="date1">
 
-    <div class="input-group-append" style="text-align:center; margin: 10px;">
+    <div style="margin-left:10px;">Date 2</div>
+    <input type="text" class="form-control" id="date2" name="date2">
+
+    <div style="margin-left:10px;">Date 3</div>
+    <input type="text" class="form-control" id="date3" name="date3">
+
+    <div style="margin-left:10px;">Date 4</div>
+    <input type="text" class="form-control" id="date4" name="date4">
+
+    <div class="input-group-append" style="margin: 10px;">
         <button class="btn btn-outline-secondary" type="submit" formmethod="POST" style="margin-left: 50px;">Set</button>
     </div>
     </form>
@@ -106,7 +100,17 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/locales/bootstrap-datepicker.ja.min.js"></script>
     <!-- bootstrap-datepicker javascript -->
     <script>
-        $('.input-daterange').datepicker({
+
+        $('#date1').datepicker({
+            format: 'yyyy/mm/dd'
+        });
+        $('#date2').datepicker({
+            format: 'yyyy/mm/dd'
+        });
+        $('#date3').datepicker({
+            format: 'yyyy/mm/dd'
+        });
+        $('#date4').datepicker({
             format: 'yyyy/mm/dd'
         });
     </script>
