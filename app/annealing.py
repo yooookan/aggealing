@@ -3,21 +3,19 @@ from openjij import SQASampler
 from pyqubo import Array, Constraint, Placeholder
 
 def process():
-    # プレゼント　リスト
+    # Todo: these lists should be selected from database
     presents = [['pole_smith', 'dacoda', 'prada'], 
                 ['mark_jcobs', 'armani', 'diesel'], 
                 ['hermers', 'alisaashley', 'avantus'], 
                 ['gucci', 'lion_hart', 'armani'], 
                 ['armani', 'hermers', 'vivian_west_wood']]
 
-    # 価格
     price = np.array([[25600, 14400, 65900], 
                     [35000, 22100, 14700], 
                     [35000, 3600, 37800],
                     [30500, 11400, 11900],
                     [14600, 24500, 9300]])
 
-    # 人気ランキング
     rank = np.array([[1, 2, 3], 
                     [1, 2, 3], 
                     [1, 2, 3], 
@@ -27,7 +25,6 @@ def process():
     categorys = 5
     ranks = 3
 
-    # プレゼント日数, 2022年, 2023年の 08/24(誕生日) と 12/24（クリスマス）
     days = 4
 
 
@@ -58,8 +55,6 @@ def process():
     sampleset = sampler.sample_qubo(qubo,num_reads=20)
 
     decoded_samples = model.decode_sampleset(sampleset=sampleset, feed_dict=feed_dict)
-    # for sample in decoded_samples:
-    #   print(sample.constraints(only_broken=True))
 
     result = sampleset.record[0][0].reshape(days, categorys, ranks)
 
