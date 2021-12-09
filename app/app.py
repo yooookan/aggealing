@@ -16,10 +16,10 @@ def post():
             if not cat == 'Choose...':
                 categorys.append(cat)
 
-        res, idx, name = annealing.process(categorys)
-        print(name)
+        res, idx, name1, name2, name3 = annealing.process(categorys)
+        print(name1, name2, name3)
         
-        return render_template("result.html", present_name=name)
+        return render_template("result.html", present_name1=name1, present_name2=name2, present_name3=name3)
     else:
         return render_template("index.html")
 
