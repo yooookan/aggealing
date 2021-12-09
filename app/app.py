@@ -15,10 +15,8 @@ def post():
         for cat in category_list:
             if not cat == 'Choose...':
                 categorys.append(cat)
-        
-        for cat in categorys:
-            print('{}'.format(cat))
-        res, idx, name = annealing.process()
+
+        res, idx, name = annealing.process(categorys)
         print(name)
         
         return render_template("result.html", present_name=name)

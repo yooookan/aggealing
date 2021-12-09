@@ -2,31 +2,27 @@ import numpy as np
 from openjij import SQASampler
 from pyqubo import Array, Constraint, Placeholder
 
-def process():
+def process(selected_categorys):
     # Todo: these lists should be selected from database
-    presents = [['pole_smith', 'dacoda', 'prada'], 
-                ['mark_jcobs', 'armani', 'diesel'], 
-                ['hermers', 'alisaashley', 'avantus'], 
-                ['gucci', 'lion_hart', 'armani'], 
-                ['armani', 'hermers', 'vivian_west_wood']]
+    presents_list = [['pole_smith', 'dacoda', 'prada'], 
+                     ['mark_jcobs', 'armani', 'diesel'], 
+                     ['hermers', 'alisaashley', 'avantus'], 
+                     ['gucci', 'lion_hart', 'armani'], 
+                     ['armani', 'hermers', 'vivian_west_wood']]
 
-    price = np.array([[25600, 14400, 65900], 
-                    [35000, 22100, 14700], 
-                    [35000, 3600, 37800],
-                    [30500, 11400, 11900],
-                    [14600, 24500, 9300]])
+    price_list = np.array([[25600, 14400, 65900], 
+                           [35000, 22100, 14700], 
+                           [35000, 3600, 37800],
+                           [30500, 11400, 11900],
+                           [14600, 24500, 9300]])
 
-    rank = np.array([[1, 2, 3], 
-                    [1, 2, 3], 
-                    [1, 2, 3], 
-                    [1, 2, 3],
-                    [1, 2, 3]])
-
-    categorys = 5
+    categorys = len(selected_categorys)
     ranks = 3
-
     days = 4
 
+    rank = np.array([list(range(ranks))] * categorys) + 1
+    presents = [presents_list[int(i)] for i in selected_categorys]
+    price = [price_list[int(i)] for i in selected_categorys]
 
     x = Array.create(name='x', shape=(days, categorys, ranks), vartype='BINARY')
 
