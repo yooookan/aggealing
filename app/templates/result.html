@@ -11,12 +11,21 @@
     <title>Aggealing</title>
   </head>
   <body>
-    <h2>プレゼントは[{{ present_name1 }}]!!</h2>
-    <h2>プレゼントは[{{ present_name2 }}]!!</h2>
-    <h2>プレゼントは[{{ present_name3 }}]!!</h2>
+    <div style="color:darkslategray; background-color: black; text-align: left; font-size: 20px; padding-left:10px">~Present Recommendation System~</div>
+    <div style="color:black; background-color: white; text-align: center; font-size: 40px">Recommended Present !!</div>
+  
+    <div style="text-align: center;">
+      <div style="color:black; background-color: white; font-size: 30px; margin: 10px; margin-top: 20px;">{{ date1 }}</div>
+      <div style="font-size: 20px;">{{ present_name1 }}の{{ category1}}</div>
+      <img src={{ image_path1 }} alt="image" title="image" style="width:200px">
+
+      <div style="color:black; background-color: white; font-size: 30px; margin: 10px; margin-top: 40px;">{{ date2 }}</div>
+      <div style="font-size: 20px;">{{ present_name2 }}の{{ category2 }}</div>
+      <img src={{ image_path2 }} alt="image" title="image" style="width:200px">
+    </div>
     <form action="/" method="GET" enctype="multipart/form-data">
-      <div class="input-group-append">
-          <button class="btn btn-outline-secondary" type="submit" formmethod="GET">Back</button>
+      <div class="input-group-append" style="margin: 10px;">
+          <button class="btn btn-outline-secondary" type="submit" formmethod="GET" style="margin-left: 50px;">Back</button>
       </div>
     </form>
     <!-- Optional JavaScript -->
