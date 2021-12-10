@@ -58,6 +58,7 @@ def process(selected_categorys, selected_date):
 
     result = sampleset.record[0][0].reshape(days, categorys, ranks)
 
+    # Todo: get result parameters usint list
     idx = np.where(result==1)
     result_len = len(idx[0])
     present_name_1 = presents[idx[1][0]][idx[2][0]]
@@ -65,9 +66,13 @@ def process(selected_categorys, selected_date):
     present_names = [present_name_1, present_name_2]
 
     category_1 = int(selected_categorys[idx[1][0]]) - 1 
-    category_2 = int(selected_categorys[idx[2][0]]) - 1
+    category_2 = int(selected_categorys[idx[1][1]]) - 1
     category_names = [category_names[category_1], category_names[category_2]]
+
+    price_1 = price_list[idx[1][0]][idx[2][0]]
+    price_2 = price_list[idx[1][1]][idx[2][1]]
+    prices = [price_1, price_2]
 
     imgs = [img_paths[category_1], img_paths[category_2]]
     
-    return result, idx, present_names, category_names, imgs
+    return result, idx, present_names, category_names, prices, imgs

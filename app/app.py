@@ -27,11 +27,12 @@ def post():
                 dates.append(date)
         print(dates)
 
-        res, idx, present_names, category_names, imgs = annealing.process(categorys, dates)
+        res, idx, present_names, category_names, prices, imgs = annealing.process(categorys, dates)
         
         return render_template("result.html", date1=date_list[0], date2=date_list[1], 
                                present_name1=present_names[0], present_name2=present_names[1], 
                                category1 = category_names[0], category2 = category_names[1],
+                               price1 = prices[0], price2 = prices[1],
                                image_path1=imgs[0], image_path2=imgs[1])
     else:
         return render_template("index.html")
